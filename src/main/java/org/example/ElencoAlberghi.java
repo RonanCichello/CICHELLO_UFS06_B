@@ -50,7 +50,7 @@ public class ElencoAlberghi {
         return s;
     }
 
-    public String more_expensive() {            // Metodo che converte la macchina con Prezzo maggiore in una stringa Json
+    public String more_expensive() {            // Metodo che converte l'albergo con Prezzo maggiore in una stringa Json
         double max=0;
         Albergo c_max = null;
 
@@ -63,16 +63,16 @@ public class ElencoAlberghi {
             }
         }
 
-        Gson gson = new Gson();                 // La macchina c_max viene convertita in una stringa Json
+        Gson gson = new Gson();                 // L'albergo c_max viene convertita in una stringa Json
         String s = gson.toJson(c_max);
 
         return s;
     }
 
 
-    public String all_sorted() {            // Metodo che ordina la lista di macchine e la converte in una stringa Json
+    public String all_sorted() {            // Metodo che ordina la lista di alberghi e la converte in una stringa Json
 
-        List<Albergo> albergoList_sorted = new ArrayList(alberghiList);     // Creiamo una lista di macchine identica a quella in memoria
+        List<Albergo> albergoList_sorted = new ArrayList(alberghiList);
 
         albergoList_sorted.sort((o1, o2) -> {                       // Facciamo l'ordinamento
             return o1.getName().compareTo(o2.getName());
@@ -89,9 +89,3 @@ public class ElencoAlberghi {
 
 
 
-// static void buildList() {       // Nel metodo buildList mettiamo i dati di esempio inserendoli nella lista di macchine
-//        carsList.add(new Albergo("albergo numero 1 , Molto bello",1,"Albergo", 2,false));
-//        carsList.add(new Albergo("",2,"ciao", 1,true));
-//        carsList.add(new Albergo("albergo bellissimo",3, "Albergo Rizzoli",234,false));
-//        System.out.println(carsList);
-//    }
