@@ -9,3 +9,18 @@ TRACCIA A
 //Poi digitare il comando more_expensive_suite
 // Poi digitare delle lettere a caso, deve mostrare "Comandi inesistente"
 
+
+
+
+
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet:
+
+Connection-specific DNS Suffix  . :
+Link-local IPv6 Address . . . . . : fe80::d19c:f72:3fb8:8385%10
+IPv4 Address. . . . . . . . . . . : 172.16.151.194
+Subnet Mask . . . . . . . . . . . : 255.255.254.0
+Default Gateway . . . . . . . . . : 172.16.150.1
