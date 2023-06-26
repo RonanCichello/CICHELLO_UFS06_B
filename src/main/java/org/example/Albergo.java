@@ -1,5 +1,4 @@
-package org.example;        //il package è la cartella nella quale si trovano i file .java
-
+package org.example;
 public class Albergo
 {
     private String descrizione;
@@ -17,7 +16,7 @@ public class Albergo
         this.suite = suite;
     }
 
-    // Per i metodi set e get bisogna fare la stessa cosa dei costruttori, selezionando Getter and Setter al posto di Constructor
+
     public String getDescrizione() {
         return descrizione;
     }
@@ -54,9 +53,9 @@ public class Albergo
         return suite;
     }
 
-    public boolean setSuite(boolean suite) {
+    public void setSuite(boolean suite) {
         this.suite = suite;
 
-        return suite;//attenzione
+
     }
 }

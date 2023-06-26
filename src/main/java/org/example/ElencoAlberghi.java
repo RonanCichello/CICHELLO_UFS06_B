@@ -23,7 +23,7 @@ public class ElencoAlberghi {
 
      static void buildList() {       // Nel metodo buildList mettiamo i dati di esempio inserendoli nella lista di macchine
         alberghiList.add(new Albergo("l'Hotel è bellissimo",3,"Gran Mjaestic", 2500.94,true));
-        alberghiList.add(new Albergo("",2,"ciao", 1,true));
+        alberghiList.add(new Albergo("",2,"ciao", 100000,false));
         alberghiList.add(new Albergo("sulle colline toscane....",34, "Albergo dei Re",303,false));
         System.out.println(alberghiList);
    }
@@ -68,6 +68,25 @@ public class ElencoAlberghi {
 
         return s;
     }
+    public String more_expensive_suite() {            // Metodo che converte l'albergo con Prezzo maggiore in una stringa Json
+        double max=0;
+        Albergo c_max = null;
+
+        for(Albergo albergo : alberghiList)                 // Viene trovata l'albergo con prezzo maggiore
+        {
+            if(albergo.getPrice()>max && albergo.getSuite())
+            {
+                max=albergo.getPrice();
+                c_max=albergo;
+            }
+        }
+
+        Gson gson = new Gson();                 // L'albergo c_max viene convertita in una stringa Json
+        String s = gson.toJson(c_max);
+
+        return s;
+    }
+
 
 
     public String all_sorted() {            // Metodo che ordina la lista di alberghi e la converte in una stringa Json

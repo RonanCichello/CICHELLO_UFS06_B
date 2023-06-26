@@ -11,10 +11,10 @@ import java.util.List;
 
 public class ClientHandler implements Runnable{
 
-    private Socket clientSocket = null;         // Attributo del socket
-    private InetAddress address;                // Attributo del address
-    private int port;                           // Attributo della porta
-    private PrintWriter out;                    // Attributo per la stampa del risultato
+    private Socket clientSocket = null;
+    private InetAddress address;
+    private int port;
+    private PrintWriter out;
 
     public ClientHandler(Socket clientSocket) {     // Costruttore che accetta la connessione di ogni client
         this.clientSocket = clientSocket;
@@ -34,7 +34,7 @@ public class ClientHandler implements Runnable{
             while ((s = in.readLine()) != null) {
                 System.out.println(s);
 
-                /********* COMANDI CLIENT *********/
+                //COMANDI CLIENT *********/
                 switch(s)
                 {
                     case "all":
@@ -45,6 +45,9 @@ public class ClientHandler implements Runnable{
                         break;
                     case "more_expensive":
                         out.println(ElencoAlberghi.getInstance().more_expensive());
+                        break;
+                    case "more_expensive_suite":
+                        out.println(ElencoAlberghi.getInstance().more_expensive_suite());
                         break;
                     default:
                         out.println("Comando inesistente");     // Risposta nel caso venga inserito un comando che non esiste
@@ -67,13 +70,13 @@ public class ClientHandler implements Runnable{
     void handle()       // Metodo che gestisce l'input e l'output del client
     {
         out = null;
-        try {       // Definiamo l'oggetto per l'output
+        try {
             out = new PrintWriter(clientSocket.getOutputStream(), true);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try {       // Definiamo l'oggetto per l'input
+        try {
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(clientSocket.getInputStream()));
             readLoop(in, out);
